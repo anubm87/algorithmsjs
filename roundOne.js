@@ -7,7 +7,11 @@
  * @param {array} arr - An array of integers
  */
 function leadZeroes(arr) {
-
+    for(var i of arr){
+        if(i===0) arr.unshift(arr.splice(i,1))
+        
+    }
+return arr;
 }
 
 /**
@@ -18,7 +22,11 @@ function leadZeroes(arr) {
  * @param {array} arr - An array of data
  */
 function setter(arr) {
+var arry=[];
 
+for(var i of arr) if(arry.indexOf(i)<0) arry.push(i)
+
+return arry; 
 }
 
 /**
@@ -33,6 +41,14 @@ function setter(arr) {
  */
 function isPrime(num) {
 
+    let recursive =function(cur){
+        if(cur===1) return true;
+        if(num%cur===0) return false;
+        return recursive(cur-1);
+    }
+
+ return recursive(num-1);
+ 
 }
 
 /**
@@ -45,6 +61,8 @@ function isPrime(num) {
  */
 function modulo(dividend, divisor) {
 
+    if(dividend>divisor) return modulo(dividend-divisor,divisor) 
+    else return dividend;
 }
 
 /**
@@ -57,7 +75,10 @@ function modulo(dividend, divisor) {
  * @param num
  */
 function nextFive(num) {
-
+    num=Math.ceil(num);
+for(var i=num+1;i<num+6;i++){
+    if(i%5===0)return i;
+}
 }
 
 /**
@@ -68,9 +89,8 @@ function nextFive(num) {
  *
  * @param obj
  */
-function osort(obj) {
+const osort=(obj)=> obj;
 
-}
 
 module.exports = {
     leadZeroes: leadZeroes,
@@ -80,3 +100,4 @@ module.exports = {
     nextFive: nextFive,
     osort: osort
 };
+
